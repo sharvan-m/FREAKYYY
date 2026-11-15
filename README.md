@@ -1,4 +1,4 @@
-\# TROIT
+TROIT
 
 
 
@@ -10,7 +10,7 @@ Just say \*\*"Hey Troit"\*\* and interact with your phone using natural voice co
 
 
 
-\## Features
+\~ Features
 
 
 
@@ -28,7 +28,7 @@ Just say \*\*"Hey Troit"\*\* and interact with your phone using natural voice co
 
 
 
-\## Tech Stack
+\~ Tech Stack
 
 
 
@@ -42,7 +42,7 @@ Just say \*\*"Hey Troit"\*\* and interact with your phone using natural voice co
 
 
 
-\## Development Status
+\~ Development Status
 
 
 
@@ -50,7 +50,7 @@ Just say \*\*"Hey Troit"\*\* and interact with your phone using natural voice co
 
 
 
-\## Developer
+\~ Developer
 
 
 
@@ -58,7 +58,7 @@ Sharvan M
 
 
 
-\## License
+\~ License
 
 
 
