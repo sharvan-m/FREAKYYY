@@ -1,11 +1,10 @@
 <div align="center">
 
-# Freakyyy 🤖
-Personal Voice-First AI Assistant & Cross-Device Ecosystem
+# Freakyyy: Personal Voice-First AI Assistant & Cross-Device Ecosystem
 
 [![GitHub Repo](https://img.shields.io/badge/GitHub-sharvan--m%2FFREAKYYY-blue?logo=github)](https://github.com/sharvan-m/FREAKYYY)
 [![Desktop](https://img.shields.io/badge/Desktop-Windows%2011%20%7C%20PySide6-blueviolet)](#-desktop-app-windows)
-[![Mobile](https://img.shields.io/badge/Mobile-Android%20%7C%20Kotlin%202.2%20%7C%20Compose-green)](#-mobile-companion-android)
+[![Mobile](https://img.shields.io/badge/Mobile-Android%20%7C%20Kotlin%202.2%20%7C%20Compose-green)](#-mobile-app-android)
 [![Voice](https://img.shields.io/badge/Speech-Kokoro--82M%20%7C%20Whisper%20%7C%20Vosk-orange)](#51-voice-engine--dsp-audio-profile)
 [![AI Engine](https://img.shields.io/badge/Brain-Ollama%20%7C%20Qwen3%204B%20%7C%20Claude-blue)](#53-local-ai-brain--persistent-memory)
 [![Link Protocol](https://img.shields.io/badge/Protocol-Freakyyy%20Link%20v1%20%7C%20TLS%20%2B%20HMAC-crimson)](#-freakyyy-link-laptop--phone)
@@ -91,41 +90,44 @@ Personal Voice-First AI Assistant & Cross-Device Ecosystem
 ```text
 FREAKYYY/
 ├── desktop/                             # Windows Desktop application (Python 3.12 + PySide6)
-│   ├── app/                             # Core application runtime and main entry points
-│   │   ├── notch/                       # MacBook-style notch UI, animation transitions & HUD
-│   │   ├── voice/                       # Vosk wake word, Whisper STT, and Kokoro-82M TTS
-│   │   ├── ai/                          # Ollama / Claude orchestrator, tool call definitions
-│   │   ├── memory/                      # SQLite FTS5 database schema, fact extraction, recall
-│   │   ├── automation/                  # Windows UI Automation, pycaw audio, process controls
-│   │   └── server/                      # Freakyyy Link v1 WebSocket TLS server
-│   ├── models/                          # Local model storage (Vosk en-us, whisper-base, Kokoro)
 │   ├── build.ps1                        # PyInstaller build automation script
-│   ├── install.ps1                      # Windows installer & shortcut setup script
-│   └── requirements.lock.txt            # Pinned Python package dependencies
+│   ├── install.ps1                      # Windows installer & desktop shortcut setup
+│   ├── uninstall.ps1                    # Clean removal script
+│   ├── launcher.py                      # Application bootstrap wrapper
+│   ├── requirements.lock.txt            # Pinned Python package dependencies
+│   └── freakyyy/                        # Core Python application package
+│       ├── app.py                       # Desktop application lifecycle manager
+│       ├── config.py                    # Global system configurations & paths
+│       ├── ai/                          # Qwen3 / Claude orchestrator, memory & mail
+│       ├── core/                        # Assistant brain, action parser & executors
+│       ├── link/                        # Freakyyy Link TLS WebSocket server
+│       ├── ui/                          # MacBook notch UI, status HUD & theme tokens
+│       ├── voice/                       # Vosk wake word, Whisper STT & Kokoro TTS
+│       └── windows/                     # Win32, pycaw, UIA screen control & dev tools
 │
 ├── mobile/                              # Android Companion application (Kotlin + Compose)
-│   ├── app/src/main/
-│   │   ├── java/com/troit/assistant/
-│   │   │   ├── ui/                      # Liquid-glass Jetpack Compose screens & components
-│   │   │   ├── link/                    # Freakyyy Link WebSocket client & QR pairing
-│   │   │   ├── automation/              # AccessibilityService tap/scroll/navigation helper
-│   │   │   └── voice/                   # On-device Kokoro voice player & speech recognizer
-│   │   └── AndroidManifest.xml          # Permissions, foreground service & accessibility declarations
-│   └── build.gradle.kts                 # Android Gradle build configuration
+│   ├── app/                             # Native Android module (com.freakyyy.assistant v2.0)
+│   │   ├── src/main/java/com/troit/assistant/
+│   │   │   ├── ui/                      # Liquid-glass Jetpack Compose interface
+│   │   │   ├── link/                    # Freakyyy Link client & QR pairing engine
+│   │   │   ├── FreakyyyAccessibilityService.kt # Optional tap/scroll automation helper
+│   │   │   └── FreakyyyVoiceEngine.kt   # Mobile neural voice synthesis
+│   │   └── build.gradle.kts             # Gradle build script (minSdk 26, targetSdk 37)
+│   └── README.md                        # Dedicated mobile companion documentation
 │
 ├── protocol/                            # Cross-device networking specifications
-│   ├── FREAKYYY_LINK_PROTOCOL.md        # Complete WebSocket, TLS, HMAC and payload spec
-│   └── schema/                          # JSON schema definitions for allow-listed actions
+│   └── FREAKYYY_LINK_PROTOCOL.md        # Complete WebSocket, TLS, HMAC & payload spec
 │
-├── brand/                               # Visual branding & media assets
-│   ├── emblem.svg                       # Geometric 'F' logo icon
-│   └── wordmark.png                     # Official FREAKYYY logotype
+├── brand/                               # Visual branding & asset generators
+│   ├── make_brand.py                    # SVG & PNG emblem rendering script
+│   └── out/                             # App icons, emblems (.svg, .png, .ico)
 │
 ├── docs/                                # Technical documentation & setup guides
 │   ├── ARCHITECTURE.md                  # Comprehensive system design specification
-│   ├── SETUP_GUIDE.md                   # End-to-end environment and model download instructions
-│   ├── SCREEN_CONTROL.md                # Windows UI Automation mechanics and safety barriers
-│   └── SECURITY_MODEL.md                # Local credential isolation and encryption standards
+│   ├── SETUP_GUIDE.md                   # End-to-end environment & model setup guide
+│   ├── SCREEN_CONTROL.md                # Windows UI Automation mechanics & barriers
+│   ├── SECURITY.md                      # Credential isolation & crypto standards
+│   └── DEVICE_PAIRING_GUIDE.md          # Step-by-step laptop ↔ phone pairing walk-through
 │
 └── README.md                            # Primary project documentation
 ```
@@ -166,6 +168,12 @@ Secure peer-to-peer link over local Wi-Fi / LAN via **WebSocket over TLS (Port 4
 - **Strict Allow-List:** Exclusively permits safe commands (`run_command`, `open_url`, `clipboard_push`, `clipboard_pull`, `ring`, `ask_ai`). **No arbitrary remote shell execution.**
 - **File Transfer Engine:** Chunked binary streaming with SHA-256 checksum verification.
 
+### 5.5 Mobile App (Android)
+- **Native Implementation:** Built with Kotlin 2.2 and Jetpack Compose (`com.freakyyy.assistant`, v2.0).
+- **Evolution:** Evolved from earlier prototypes (*TROIT* and *Dexter*) into the unified Freakyyy ecosystem.
+- **Phone Automation:** Accessibility helper handles navigation (back, home, recents, scroll, tap), notification counters, and device settings.
+- **Laptop AI Relay:** When the phone receives complex requests, queries are routed through Freakyyy Link to the laptop's Qwen3/Claude engine.
+
 ---
 
 ## ⚡ 6. Installation & Setup
@@ -189,14 +197,16 @@ powershell -ExecutionPolicy Bypass -File install.ps1
 cd mobile
 ./gradlew assembleDebug
 
-# 2. Install the debug APK to your connected device
-adb install app/build/outputs/apk/debug/app-debug.apk
+# 2. Uninstall any old TROIT / Dexter build, then install the clean APK
+adb uninstall com.troit.assistant   # (if previously installed)
+adb install mobile/app/build/outputs/apk/debug/app-debug.apk
 ```
 
 ### 3. Pairing
 1. On your Windows desktop, click the **Notch Menu → Add Device** to display the pairing QR code.
 2. In the mobile app, navigate to **Devices → Scan Pairing Code**.
 3. Verify that the **6-digit security code** matches on both screens, then tap **Confirm Pairing**.
+4. *(Optional)* Enable the **Freakyyy Accessibility Helper** and **Notification Counter** in the phone's settings for deep system automation.
 
 ---
 
