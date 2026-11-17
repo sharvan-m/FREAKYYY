@@ -13,7 +13,7 @@ Personal Voice-First AI Assistant & Cross-Device Ecosystem
 
 **A private, offline-capable, voice-driven JARVIS-style assistant engineered for Windows 11 and Android. Seamlessly controls native applications, automates OS workflows, manages daily routines, and syncs over a zero-trust encrypted local link.**
 
-[Overview](#-1-project-overview) • [Highlights](#-2-core-highlights) • [Tech Stack](#-3-technology-stack) • [Repository Layout](#-4-repository-layout) • [Architecture](#-5-architecture--subsystems) • [Quick Start](#-6-installation--setup) • [Security](#-7-privacy--security-model) • [Credits](#-8-references--credits)
+[Overview](#-1-project-overview) • [Highlights](#-2-core-highlights) • [Tech Stack](#-3-technology-stack) • [Repository Layout](#-4-repository-layout) • [Architecture](#-5-architecture--subsystems) • [Quick Start](#-6-installation--setup) • [Security](#-7-privacy--security-model) • [References](#-10-references--credits)
 
 </div>
 
