@@ -1,6 +1,7 @@
 <div align="center">
 
-# Freakyyy Mobile: Android Companion Assistant
+# Freakyyy Mobile 📱
+Android Companion Assistant
 
 [![Platform](https://img.shields.io/badge/Platform-Android%208.0%2B%20(API%2026--37)-green)](https://developer.android.com)
 [![Language](https://img.shields.io/badge/Language-Kotlin%202.2-blue)](https://kotlinlang.org)
