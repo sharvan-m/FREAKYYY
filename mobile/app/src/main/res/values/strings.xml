@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Freakyyy</string>
+    <string name="accessibility_label">Freakyyy automation helper</string>
+    <string name="accessibility_description">Optional. Lets Freakyyy go back, go home, show recent apps, open notifications or quick settings, lock the screen, take screenshots, scroll, and tap a button you name — only when you ask. Freakyyy never reads passwords, stores nothing it sees, and asks before tapping payment, send or delete buttons. Turn it off here or in Freakyyy\'s Permissions screen at any time.</string>
+    <string name="notification_listener_label">Freakyyy notification counter</string>
+</resources>

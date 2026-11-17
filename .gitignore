@@ -1,16 +1,20 @@
-*.iml
-.gradle
-/local.properties
-/.idea/caches
-/.idea/libraries
-/.idea/modules.xml
-/.idea/workspace.xml
-/.idea/navEditor.xml
-/.idea/assetWizardSettings.xml
-.DS_Store
-/build
-/captures
-.externalNativeBuild
-.cxx
-local.properties
+# Desktop
+desktop/.venv/
+desktop/build/
+desktop/dist/
+desktop/models/
+desktop/*.spec
+desktop/build_log*.txt
+__pycache__/
+*.pyc
+
+# Mobile
+mobile/.gradle/
+mobile/build/
+mobile/app/build/
+mobile/local.properties
+mobile/build_log*.txt
+mobile/app/src/main/assets/*.litertlm
 .idea/
+*.iml
+.kotlin/

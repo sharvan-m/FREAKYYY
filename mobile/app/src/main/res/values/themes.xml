@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Dark window so Freakyyy never flashes white while Compose starts. -->
+    <style name="Theme.Troit" parent="android:Theme.Material.NoActionBar">
+        <item name="android:windowBackground">@color/freakyyy_black</item>
+        <item name="android:colorAccent">@color/freakyyy_blue</item>
+    </style>
+</resources>
