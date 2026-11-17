@@ -1,6 +1,6 @@
 <div align="center">
 
-# Freakyyy:
+# Freakyyy 🤖
 Personal Voice-First AI Assistant & Cross-Device Ecosystem
 
 [![GitHub Repo](https://img.shields.io/badge/GitHub-sharvan--m%2FFREAKYYY-blue?logo=github)](https://github.com/sharvan-m/FREAKYYY)
